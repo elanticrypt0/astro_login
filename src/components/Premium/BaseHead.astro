@@ -1,0 +1,27 @@
+---
+import "@/styles/global.css";
+import { SiteConfig } from "@/config/siteconfig";
+
+---
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="shortcut icon" type="image/png" href="./favicon.svg" />
+    <title>{SiteConfig.title}</title>
+    <meta name="title" content={SiteConfig.title} />
+    <meta name="description" content={SiteConfig.description} />
+    <meta name="author" content={SiteConfig.author} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={SiteConfig.title} />
+    <meta property="og:description" content={SiteConfig.description} />
+    <meta property="og:image" content={new URL(SiteConfig.ogImage, Astro.url)} />
+    <meta name="twitter:url" content={Astro.url} />
+    <meta name="twitter:title" content={SiteConfig.title} />
+    <meta name="twitter:description" content={SiteConfig.description} />
+    <meta name="twitter:image" content={new URL(SiteConfig.ogImage, Astro.url)} />
+    <meta name="twitter:card" content="summary_large_image" />
+</head>
+

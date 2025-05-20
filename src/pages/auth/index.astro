@@ -1,0 +1,37 @@
+---
+import AuthLayout from '@/layouts/AuthLayout.astro';
+import Login from '@/components/Auth/Login.svelte';
+
+// Puedes configurar una imagen de fondo aquí
+const backgroundImage = '/images/login-background.jpg'; // Ajusta la ruta a tu imagen
+---
+
+<AuthLayout title="Verificación OTP">
+  <Login client:load backgroundImage={backgroundImage} />
+</AuthLayout>
+
+<script>
+  // Script para manejar la redirección después del login exitoso
+  document.addEventListener('DOMContentLoaded', () => {
+    const loginComponent = document.querySelector('astro-island');
+    
+    if (loginComponent) {
+      loginComponent.addEventListener('login', (event) => {
+        // Redireccionar a la página premium
+        window.location.href = '/premium';
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Resetear estilos globales para asegurar que el login ocupe toda la pantalla */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #18181b; /* bg-zinc-900 */
+  }
+</style>

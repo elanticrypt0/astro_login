@@ -1,0 +1,25 @@
+<script>
+  import { isAuthenticated, logout } from '@/middleware/auth';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const authContent = document.getElementById('auth-content');
+    const authError = document.getElementById('auth-error');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    // Verificar autenticación
+    if (isAuthenticated()) {
+      authContent.classList.remove('hidden');
+      authError.classList.add('hidden');
+    } else {
+      authContent.classList.add('hidden');
+      authError.classList.remove('hidden');
+    }
+    
+    // Manejar logout
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        logout();
+      });
+    }
+  });
+</script>

@@ -1,0 +1,48 @@
+---
+import PremiumLayout from '@/layouts/PremiumLayout.astro';
+import { isAuthenticated } from '@/middleware/auth';
+import AuthFooter from "@/components/Auth/AuthFooter.astro"
+---
+
+<PremiumLayout title="Contenido Premium">
+  <main class="container mx-auto py-12 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-bold">Contenido Premium</h1>
+        <button id="logout-btn" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">
+          Cerrar sesión
+        </button>
+      </div>
+      
+      <div id="auth-content" class="hidden">
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h2 class="text-xl font-semibold mb-4">¡Bienvenido al área premium!</h2>
+          <p class="mb-4">Aquí puedes acceder a todo el contenido exclusivo para miembros.</p>
+          
+          <!-- Contenido premium -->
+          <div class="space-y-6 mt-8">
+            <div class="border-l-4 border-blue-500 pl-4">
+              <h3 class="font-medium">Recurso Exclusivo #1</h3>
+              <p class="text-gray-600">Descripción del recurso exclusivo para miembros premium.</p>
+            </div>
+            
+            <div class="border-l-4 border-blue-500 pl-4">
+              <h3 class="font-medium">Recurso Exclusivo #2</h3>
+              <p class="text-gray-600">Otro recurso exclusivo disponible solo para miembros.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="auth-error" class="hidden">
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <p>Necesitas iniciar sesión para acceder al contenido premium.</p>
+          <a href="/auth" class="inline-block mt-3 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+            Ir al login
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</PremiumLayout>
+<AuthFooter></AuthFooter>
