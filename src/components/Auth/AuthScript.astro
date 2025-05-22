@@ -2,6 +2,7 @@
   import { isAuthenticated, logout } from '@/middleware/auth';
 
   document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector("body");
     const authContent = document.getElementById('auth-content');
     const authError = document.getElementById('auth-error');
     const logoutBtn = document.getElementById('logout-btn');
@@ -10,9 +11,11 @@
     if (isAuthenticated()) {
       authContent.classList.remove('hidden');
       authError.classList.add('hidden');
+
     } else {
-      authContent.classList.add('hidden');
-      authError.classList.remove('hidden');
+      body.style="display:none";
+      // go to login page
+      window.location.replace('/auth');
     }
     
     // Manejar logout
