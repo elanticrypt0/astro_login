@@ -1,11 +1,14 @@
 ---
 import BaseHead from "@/components/Premium/BaseHead.astro"
+import AuthScript from "@/components/Auth/AuthScript.astro"
 ---
 <!doctype html>
 <html lang="en">
   <BaseHead/>
 
   <body class="bg-zinc-900">
+    <AuthScript></AuthScript>
     <slot>
   </body>
+  
 </html>
